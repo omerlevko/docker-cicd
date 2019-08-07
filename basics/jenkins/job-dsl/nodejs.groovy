@@ -32,6 +32,7 @@ job('NodeJS Docker example') {
     }
     steps {
         dockerBuildAndPublish {
+            buildContext('./basics')
             repositoryName('devopscourse2019/devops') //qa / dev
             tag('${GIT_REVISION,length=9}')
             registryCredentials('dockerhub')
