@@ -7,7 +7,7 @@ node {
    }
    stage('test') {
      nodejs(nodeJSInstallationName: 'NodeJS-11') {
-       cd ./basics
+       sh 'cd ./basics'
        sh 'npm install --only=dev'
        sh 'npm test'
      }
