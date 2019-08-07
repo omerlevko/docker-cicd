@@ -32,7 +32,7 @@ job('NodeJS Docker example') {
     }
     steps {
         dockerBuildAndPublish {
-            repositoryName('devopscourse/devops') //qa / dev
+            repositoryName('devopscourse2019/devops') //qa / dev
             tag('${GIT_REVISION,length=9}')
             registryCredentials('dockerhub')
             forcePull(false)
