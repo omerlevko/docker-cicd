@@ -43,3 +43,25 @@ job('NodeJS Docker example') {
         }
     }
 }
+
+pipelineJob('pipeline-boilerplate-fromcode'){
+    def repo = 'git://github.com/omerlevko/docker-cicd.git'
+    
+        triggers {
+        scm('H/5 * * * *')
+    }
+    description("pipeline example")
+        definition {
+        cpsScm {
+            scm {
+                git{
+                    remote {url(repo)}
+                    branches('master')
+                    scriptPath('./basics/misc/Jenkinsfile')
+                    extensions{}
+                    
+            }
+        }
+    }
+}
+}
